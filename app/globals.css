@@ -1,0 +1,244 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ===== CUSTOM FONTS ===== */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+/* ===== BASE STYLES - APPLE INSPIRED ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+  background-color: #ffffff;
+  color: #1C1C1E;
+  overflow-x: hidden;
+}
+
+/* ===== CUSTOM SCROLLBAR - APPLE STYLE ===== */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f5f5f7;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #0A6CF0;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #053A73;
+}
+
+/* ===== UTILITIES ===== */
+@layer utilities {
+  /* Glassmorphism Effect */
+  .glass {
+    background: rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+  }
+
+  .glass-dark {
+    background: rgba(5, 58, 115, 0.15);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  /* Premium Shadow - Apple Style */
+  .shadow-premium {
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  }
+
+  .shadow-premium-lg {
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.12);
+  }
+
+  /* Gradient Text */
+  .gradient-text {
+    background: linear-gradient(135deg, #0A6CF0 0%, #053A73 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Smooth Transitions */
+  .transition-premium {
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* Grid Layout - Apple Style */
+  .grid-apple {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+  }
+
+  /* Button Hover Effect */
+  .btn-premium {
+    @apply px-8 py-4 rounded-full font-medium text-white bg-efet-blue hover:bg-efet-dark transition-premium shadow-premium hover:shadow-premium-lg hover:scale-105 active:scale-95;
+  }
+
+  .btn-outline {
+    @apply px-8 py-4 rounded-full font-medium text-efet-blue border-2 border-efet-blue hover:bg-efet-blue hover:text-white transition-premium;
+  }
+}
+
+/* ===== ANIMATIONS ===== */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-60px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideRight {
+  from {
+    opacity: 0;
+    transform: translateX(60px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Animation Classes */
+.animate-fade-up {
+  animation: fadeUp 0.8s ease-out forwards;
+}
+
+.animate-fade-in {
+  animation: fadeIn 1s ease-out forwards;
+}
+
+.animate-slide-left {
+  animation: slideLeft 0.7s ease-out forwards;
+}
+
+.animate-slide-right {
+  animation: slideRight 0.7s ease-out forwards;
+}
+
+.animate-scale-in {
+  animation: scaleIn 0.6s ease-out forwards;
+}
+
+/* Delay utilities for staggered animations */
+.delay-100 { animation-delay: 0.1s; }
+.delay-200 { animation-delay: 0.2s; }
+.delay-300 { animation-delay: 0.3s; }
+.delay-400 { animation-delay: 0.4s; }
+.delay-500 { animation-delay: 0.5s; }
+
+/* ===== SECTION SPACING - APPLE STYLE ===== */
+section {
+  padding: 6rem 1.5rem;
+  position: relative;
+}
+
+@media (min-width: 768px) {
+  section {
+    padding: 8rem 3rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  section {
+    padding: 10rem 6rem;
+  }
+}
+
+/* ===== CONTAINER ===== */
+.container-premium {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* ===== HEADING STYLES ===== */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+h1 {
+  font-size: clamp(2.5rem, 6vw, 5rem);
+  font-weight: 800;
+}
+
+h2 {
+  font-size: clamp(2rem, 5vw, 4rem);
+}
+
+h3 {
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+}
+
+/* ===== LINK HOVER EFFECT ===== */
+a {
+  @apply transition-premium;
+}
+
+a:hover {
+  @apply text-efet-blue;
+}
+
+/* ===== IMAGE OPTIMIZATION ===== */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
