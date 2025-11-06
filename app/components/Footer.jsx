@@ -157,12 +157,6 @@ export default function Footer() {
                   <span>EFET Casablanca, Maroc</span>
                 </li>
                 <li className="flex items-start gap-3 text-gray-400 text-sm">
-                  <Mail className="w-4 h-4 flex-shrink-0 mt-0.5" />
-                  <a href="mailto:bde@efet.ma" className="hover:text-white transition-colors">
-                    bde@efet.ma
-                  </a>
-                </li>
-                <li className="flex items-start gap-3 text-gray-400 text-sm">
                   <Instagram className="w-4 h-4 flex-shrink-0 mt-0.5" />
                   <a
                     href="https://instagram.com/efet_bde"
@@ -187,11 +181,13 @@ export default function Footer() {
                 © 2025 BDE EFET Casablanca — Tous droits réservés
               </p>
               <p className="text-gray-600 text-xs">
-                Conçu par <span className="text-gray-400 font-medium">Lamarti Hatim.</span> — Vice-Président & Développeur Web
+                Développé par <span className="text-gray-400 font-medium">Lamarti Hatim</span> — Vice-Président & Développeur Web
               </p>
             </div>
             <div>
-             
+              <p className="text-gray-600 text-xs uppercase tracking-wider">
+                Next.js • Tailwind CSS • Framer Motion
+              </p>
             </div>
           </div>
         </div>

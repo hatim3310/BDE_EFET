@@ -13,6 +13,11 @@ export const metadata = {
   description: 'Le Bureau des Étudiants de l\'EFET 2025-2026 incarne l\'énergie, la créativité et l\'unité du campus de Casablanca.',
   keywords: 'BDE, EFET, Casablanca, étudiants, bureau des étudiants, 2025',
   authors: [{ name: 'Hatim L.', role: 'Vice-Président & Développeur' }],
+  icons: {
+    icon: '/logo.svg',
+    shortcut: '/logo.svg',
+    apple: '/logo.svg',
+  },
   openGraph: {
     title: 'BDE EFET 2025',
     description: 'Une équipe, une vision, une famille 💙',

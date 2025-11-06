@@ -213,22 +213,14 @@ export default function SortieBarbecue() {
             <p className="text-xl text-gray-600 mb-8">
               Les inscriptions ouvriront prochainement. Suivez-nous pour ne pas manquer cette sortie exclusive !
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a
-                href="https://instagram.com/efet_bde"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="px-10 py-4 bg-efet-blue text-white font-medium hover:bg-efet-dark transition-all"
-              >
-                Suivre @efet_bde
-              </a>
-              <a
-                href="mailto:bde@efet.ma"
-                className="px-10 py-4 border border-efet-blue text-efet-blue font-medium hover:bg-efet-blue hover:text-white transition-all"
-              >
-                Nous contacter
-              </a>
-            </div>
+            <a
+              href="https://instagram.com/efet_bde"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block px-10 py-4 bg-efet-blue text-white font-medium hover:bg-efet-dark transition-all"
+            >
+              Suivre @efet_bde
+            </a>
           </div>
         </section>
       </main>

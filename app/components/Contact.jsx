@@ -15,12 +15,6 @@ export default function Contact() {
 
   const contactInfo = [
     {
-      icon: Mail,
-      label: 'Email',
-      value: 'bde@efet.ma',
-      link: 'mailto:bde@efet.ma',
-    },
-    {
       icon: Instagram,
       label: 'Instagram',
       value: '@efet_bde',
@@ -82,7 +76,7 @@ export default function Contact() {
           className="max-w-4xl mx-auto"
         >
           {/* Informations de contact */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+          <div className="flex justify-center mb-16">
             {contactInfo.map((contact, index) => (
               <motion.a
                 key={index}
@@ -90,7 +84,7 @@ export default function Contact() {
                 href={contact.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group block"
+                className="group block max-w-md w-full"
               >
                 <div className="border border-gray-200 bg-white p-10 hover:border-efet-blue transition-all duration-500 h-full">
                   <div className="flex items-start gap-4">
@@ -112,32 +106,7 @@ export default function Contact() {
           </div>
 
           {/* QR Code */}
-          <motion.div variants={itemVariants} className="text-center">
-            <div className="border border-gray-200 bg-white p-10 inline-block">
-              <QrCode className="w-8 h-8 mx-auto mb-4 text-efet-blue" />
-              <p className="text-xs uppercase tracking-[0.2em] text-gray-500 mb-6 font-medium">
-                QR Code
-              </p>
-
-              {/* Placeholder QR Code */}
-              <div className="bg-gray-50 p-8 mx-auto w-56 h-56 flex items-center justify-center border border-gray-200">
-                <div className="text-center">
-                  <QrCode className="w-24 h-24 text-gray-300 mx-auto mb-3" />
-                  <p className="text-xs text-gray-500">
-                    Placez votre QR code
-                    <br />
-                    dans public/qr.png
-                  </p>
-                </div>
-              </div>
-
-              <p className="text-sm text-gray-600 mt-6 font-light">
-                Scannez pour accéder rapidement
-                <br />
-                à notre site et nos réseaux
-              </p>
-            </div>
-          </motion.div>
+          
         </motion.div>
       </div>
     </section>
