@@ -59,7 +59,7 @@ export default function Team() {
     {
       name: 'Yassine',
       role: 'Comité Événementiel',
-      subRoles: [],
+      subRoles: ['Media'],
       image: '/images/team/yassine.png',
       fallback: 'https://ui-avatars.com/api/?name=Yassine&size=600&background=1C1C1E&color=fff&bold=true&font-size=0.35',
     },
@@ -72,15 +72,15 @@ export default function Team() {
     },
     {
       name: 'Agarraijou Mohammed',
-      role: 'Comité Communication',
+      role: 'Comité Sportife',
       subRoles: [],
       image: '/images/team/simo.png',
       fallback: 'https://ui-avatars.com/api/?name=Simo&size=600&background=1C1C1E&color=fff&bold=true&font-size=0.35',
     },
     {
       name: 'Mouradi Amira',
-      role: 'Support IT',
-      subRoles: ['Communication'],
+      role: 'Comité Communication',
+      subRoles: [''],
       image: '/images/team/amira.png',
       fallback: 'https://ui-avatars.com/api/?name=Amira&size=600&background=1C1C1E&color=fff&bold=true&font-size=0.35',
     },
