@@ -56,7 +56,7 @@ export default function SortieBarbecue() {
               <div className="text-center p-6 border border-gray-200 bg-orange-50">
                 <DollarSign className="w-8 h-8 text-orange-600 mx-auto mb-4" />
                 <div className="text-sm uppercase tracking-wider text-gray-500 mb-2">Tarif</div>
-                <div className="text-xl font-bold text-orange-600">150 DH</div>
+                <div className="text-xl font-bold text-orange-600">Payant</div>
               </div>
             </div>
           </div>
@@ -144,7 +144,7 @@ export default function SortieBarbecue() {
         {/* Ce qui est inclus */}
         <section className="py-16 bg-efet-blue text-white">
           <div className="max-w-4xl mx-auto px-6 lg:px-8">
-            <h2 className="text-3xl font-bold mb-12 text-center">Inclus dans les 150 DH</h2>
+            <h2 className="text-3xl font-bold mb-12 text-center">Inclus dans le tarif</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {[
                 'Transport aller-retour',
@@ -180,7 +180,7 @@ export default function SortieBarbecue() {
                 <div className="flex items-start gap-3">
                   <span className="text-efet-blue font-bold">•</span>
                   <div>
-                    <strong>Tarif :</strong> 150 DH par personne
+                    <strong>Tarif :</strong> Payant (prix à confirmer)
                   </div>
                 </div>
                 <div className="flex items-start gap-3">

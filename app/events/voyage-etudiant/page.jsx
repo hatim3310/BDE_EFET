@@ -56,8 +56,8 @@ export default function VoyageEtudiant() {
               <div className="text-center p-6 border border-gray-200 bg-blue-50">
                 <DollarSign className="w-8 h-8 text-efet-blue mx-auto mb-4" />
                 <div className="text-sm uppercase tracking-wider text-gray-500 mb-2">Budget</div>
-                <div className="text-xl font-bold text-efet-blue">400-600 DH</div>
-                <div className="text-xs text-gray-500 mt-1">Négociable</div>
+                <div className="text-xl font-bold text-efet-blue">Payant</div>
+                <div className="text-xs text-gray-500 mt-1">Prix à confirmer</div>
               </div>
             </div>
           </div>
@@ -79,7 +79,7 @@ export default function VoyageEtudiant() {
                 et vivre des expériences que vous raconterez pendant des années.
               </p>
               <p className="text-gray-700 leading-relaxed">
-                Le tarif est <strong>négociable (entre 400 et 600 DH)</strong> pour permettre au maximum
+                Le tarif sera <strong>annoncé prochainement</strong> pour permettre au maximum
                 d'étudiants de participer. Nous travaillons dur pour vous offrir le meilleur rapport qualité-prix
                 et rendre ce voyage accessible à tous.
               </p>

@@ -69,7 +69,7 @@ export default function Program() {
       date: 'Mai 2025',
       location: 'Extérieur Casablanca',
       capacity: '100 étudiants',
-      price: '150 DH / Étudiant',
+      price: 'Payant',
       isPaid: true,
       description: 'Une journée 100% étudiants ! Moment de détente et de convivialité en plein air entre camarades. Profitez d\'une journée ensoleillée autour d\'un délicieux barbecue.',
       highlights: [
@@ -101,12 +101,12 @@ export default function Program() {
       date: 'Juin 2025',
       location: 'Destination à annoncer',
       capacity: 'Collaboration EFET Casa + Fès + Marrakech',
-      price: '400-600 DH (à négocier)',
+      price: 'Payant',
       isPaid: true,
       description: 'Une aventure exceptionnelle en collaboration avec tous les campus EFET du Maroc (Casablanca, Fès, Marrakech) ! Une opportunité unique de rencontrer des étudiants de tout le groupe EFET et créer des souvenirs inoubliables.',
       highlights: [
         'Collaboration inter-campus EFET',
-        'Prix négocié entre 400-600 DH',
+        'Prix à confirmer',
         'Transport et hébergement inclus',
         '3 jours / 2 nuits d\'aventure'
       ],
@@ -234,9 +234,10 @@ export default function Program() {
                 <div className="mt-6 pt-6 border-t border-gray-100">
                   <Link
                     href={event.link}
-                    className="inline-block text-sm font-medium text-efet-blue hover:text-efet-dark transition-all"
+                    className="inline-flex items-center justify-center gap-2 w-full px-6 py-3 bg-efet-blue text-white text-sm font-medium hover:bg-efet-dark transition-all duration-300 group"
                   >
-                    Plus d'informations →
+                    Plus d'informations
+                    <span className="group-hover:translate-x-1 transition-transform duration-300">→</span>
                   </Link>
                 </div>
               </div>

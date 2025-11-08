@@ -36,8 +36,12 @@ export default function Navbar() {
   const scrollToSection = (href) => {
     const element = document.querySelector(href)
     if (element) {
+      // L'élément existe sur la page actuelle, scroll direct
       element.scrollIntoView({ behavior: 'smooth', block: 'start' })
       setIsMobileMenuOpen(false)
+    } else {
+      // L'élément n'existe pas, on est sur une autre page - redirection vers la page d'accueil
+      window.location.href = '/' + href
     }
   }
 
