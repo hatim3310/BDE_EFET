@@ -1,9 +1,9 @@
+/* ===== CUSTOM FONTS ===== */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-/* ===== CUSTOM FONTS ===== */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800&display=swap');
 
 /* ===== BASE STYLES - APPLE INSPIRED ===== */
 * {
@@ -46,6 +46,7 @@ body {
 
 /* ===== UTILITIES ===== */
 @layer utilities {
+
   /* Glassmorphism Effect */
   .glass {
     background: rgba(255, 255, 255, 0.75);
@@ -91,12 +92,20 @@ body {
   }
 
   /* Button Hover Effect */
+  /* Button Hover Effect */
   .btn-premium {
-    @apply px-8 py-4 rounded-full font-medium text-white bg-efet-blue hover:bg-efet-dark transition-premium shadow-premium hover:shadow-premium-lg hover:scale-105 active:scale-95;
+    @apply px-8 py-4 rounded-full font-medium text-white bg-efet-blue hover:bg-efet-dark hover:scale-105 active:scale-95;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  }
+
+  .btn-premium:hover {
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.12);
   }
 
   .btn-outline {
-    @apply px-8 py-4 rounded-full font-medium text-efet-blue border-2 border-efet-blue hover:bg-efet-blue hover:text-white transition-premium;
+    @apply px-8 py-4 rounded-full font-medium text-efet-blue border-2 border-efet-blue hover:bg-efet-blue hover:text-white;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   }
 }
 
@@ -106,6 +115,7 @@ body {
     opacity: 0;
     transform: translateY(40px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -116,6 +126,7 @@ body {
   from {
     opacity: 0;
   }
+
   to {
     opacity: 1;
   }
@@ -126,6 +137,7 @@ body {
     opacity: 0;
     transform: translateX(-60px);
   }
+
   to {
     opacity: 1;
     transform: translateX(0);
@@ -137,6 +149,7 @@ body {
     opacity: 0;
     transform: translateX(60px);
   }
+
   to {
     opacity: 1;
     transform: translateX(0);
@@ -148,6 +161,7 @@ body {
     opacity: 0;
     transform: scale(0.9);
   }
+
   to {
     opacity: 1;
     transform: scale(1);
@@ -176,11 +190,25 @@ body {
 }
 
 /* Delay utilities for staggered animations */
-.delay-100 { animation-delay: 0.1s; }
-.delay-200 { animation-delay: 0.2s; }
-.delay-300 { animation-delay: 0.3s; }
-.delay-400 { animation-delay: 0.4s; }
-.delay-500 { animation-delay: 0.5s; }
+.delay-100 {
+  animation-delay: 0.1s;
+}
+
+.delay-200 {
+  animation-delay: 0.2s;
+}
+
+.delay-300 {
+  animation-delay: 0.3s;
+}
+
+.delay-400 {
+  animation-delay: 0.4s;
+}
+
+.delay-500 {
+  animation-delay: 0.5s;
+}
 
 /* ===== SECTION SPACING - APPLE STYLE ===== */
 section {
@@ -208,7 +236,12 @@ section {
 }
 
 /* ===== HEADING STYLES ===== */
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-weight: 700;
   line-height: 1.2;
   letter-spacing: -0.02em;
