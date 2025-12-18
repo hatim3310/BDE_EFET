@@ -1,7 +1,9 @@
 import { Inter } from 'next/font/google'
 import './globals.css'
+import Image from 'next/image'
+import FrozenPage from './components/FrozenPage'
 
-// Configuration de la police Inter (alternative à SF Pro Display)
+// Configuration de la police Inter
 const inter = Inter({
   subsets: ['latin'],
   display: 'swap',
@@ -9,40 +11,26 @@ const inter = Inter({
 })
 
 export const metadata = {
-  title: 'BDE EFET 2025 — Une équipe, une vision, une famille 💙',
-  description: 'Le Bureau des Étudiants de l\'EFET 2025-2026 incarne l\'énergie, la créativité et l\'unité du campus de Casablanca.',
-  keywords: 'BDE, EFET, Casablanca, étudiants, bureau des étudiants, 2025',
-  authors: [{ name: 'Hatim L.', role: 'Vice-Président & Développeur' }],
+  title: 'BDE EFET 2025 - Terminée',
+  description: 'Le BDE a été remporté. À l\'année prochaine !',
   icons: {
     icon: '/logo.svg',
     shortcut: '/logo.svg',
     apple: '/logo.svg',
   },
-  openGraph: {
-    title: 'BDE EFET 2025',
-    description: 'Une équipe, une vision, une famille 💙',
-    type: 'website',
-    locale: 'fr_FR',
-  },
-  viewport: {
-    width: 'device-width',
-    initialScale: 1,
-    maximumScale: 5,
-  },
 }
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="fr" className={`${inter.variable} scroll-smooth`}>
+    <html lang="fr" className={`${inter.variable}`}>
       <head>
-        {/* Police SF Pro Display depuis CDN */}
         <link
           rel="stylesheet"
           href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800&display=swap"
         />
       </head>
-      <body className={`${inter.className} antialiased bg-white text-efet-black overflow-x-hidden`}>
-        {children}
+      <body className={inter.className}>
+        <FrozenPage />
       </body>
     </html>
   )
