@@ -1,298 +1,113 @@
-# 🎓 BDE EFET 2025 - Site Officiel
+<div align="center">
 
-Site web officiel du Bureau des Étudiants de l'EFET Casablanca pour l'année 2025.
+  <img src="public/logo.svg" alt="BDE EFET Logo" width="120" />
 
-![Next.js](https://img.shields.io/badge/Next.js-15.0-black?logo=next.js)
-![React](https://img.shields.io/badge/React-18.3-blue?logo=react)
-![Tailwind CSS](https://img.shields.io/badge/Tailwind-3.4-38bdf8?logo=tailwind-css)
-![License](https://img.shields.io/badge/License-MIT-green)
+  # ⚡ BDE EFET 2025
+  ### The Next Gen Digital Experience
 
-## ✨ Aperçu
+  <p align="center">
+    <a href="https://nextjs.org">
+      <img src="https://img.shields.io/badge/Next.js-14-black?style=for-the-badge&logo=next.js" alt="Next.js" />
+    </a>
+    <a href="https://tailwindcss.com">
+      <img src="https://img.shields.io/badge/Tailwind_CSS-3.0-38B2AC?style=for-the-badge&logo=tailwind-css" alt="Tailwind CSS" />
+    </a>
+    <a href="https://www.framer.com/motion/">
+      <img src="https://img.shields.io/badge/Framer_Motion-Animation-0055FF?style=for-the-badge&logo=framer" alt="Framer Motion" />
+    </a>
+  </p>
 
-Site moderne et professionnel présentant l'équipe du BDE EFET 2025, le programme complet des événements, et permettant aux étudiants de rester connectés avec toutes les activités du campus.
+  <p>
+    <b>Une plateforme immersive et moderne pour le Bureau des Étudiants de l'EFET.</b><br/>
+    Conçue pour inspirer, informer et rassembler la communauté étudiante avec une esthétique "Quiet Luxury".
+  </p>
+  
+  <br />
 
-**🔗 Liens rapides:**
-- 📱 Instagram: [@efet_bde](https://instagram.com/efet_bde)
-- ✉️ Email: bde@efet.ma
-- 🌐 Site: [À venir]
+  <a href="#-features">Features</a> •
+  <a href="#-getting-started">Installation</a> •
+  <a href="#-tech-stack">Tech Stack</a> •
+  <a href="#-credits">Crédits</a>
 
----
+</div>
 
-## 🚀 Fonctionnalités
+<br />
 
-### 🎯 Pages Principales
-- **Accueil** - Hero section avec présentation du BDE
-- **Équipe** - Présentation des 10 membres du bureau avec photos
-- **Programme** - 6 événements détaillés pour 2025
-- **Valeurs** - Mission et valeurs du BDE
-- **Contact** - Formulaire et QR code Instagram
+## 💎 Features
 
-### 📅 Événements 2025
-1. **Fête de fin d'année** (Décembre) - GRATUIT
-   - Tournoi de billard exclusif
-   - DJ et musique live
-   - Buffet et rafraîchissements
+Ce projet repousse les limites des sites associatifs classiques avec une approche **cinématographique** et **interactive**.
 
-2. **Marché de l'EFET** (Mars) - GRATUIT
-   - Priorité aux étudiants vendeurs
-   - Produits artisanaux et créations
+- **🎨 Ultra-Premium UI**: Design sombre, minimaliste et sophistiqué ("Quiet Luxury").
+- **⚡ Performance First**: Optimisation des images (`next/image`), chargement paresseux et animations fluides.
+- **📱 Responsive & Mobile-First**: Une expérience parfaite sur iPhone, iPad et Desktop.
+- **🎭 Animations Immersives**: Transitions fluides avec `Framer Motion` et effets de scroll.
+- **📸 Galerie Événementielle**: Une grille type "Masonry" pour revivre les moments forts (Halloween, etc.).
+- **📅 Timeline Interactive**: Programme de l'année visualisable en un coup d'œil.
+- **🏎️ Low Data Mode**: Architecture pensée pour les connexions mobiles.
 
-3. **Don du Sang** (Avril) - GRATUIT
-   - Action solidaire
-   - Encadrement médical professionnel
+<br />
 
-4. **Sortie Barbecue** (Mai) - 150 DH
-   - Exclusivement entre étudiants
-   - Transport et activités inclus
+## 🛠 Tech Stack
 
-5. **8 Mars - Journée de la Femme** - GRATUIT
-   - Cadeaux pour toutes les femmes
-   - Animations et célébrations
+Un socle technique robuste pour une performance maximale.
 
-6. **Voyage Étudiant** (Été) - 400-600 DH
-   - Collaboration EFET Casa + Fès + Marrakech
-   - 3 jours / 2 nuits d'aventure
+| Tech | Usage |
+| :--- | :--- |
+| **Next.js 14** | Framework React pour le SSR et les performances. |
+| **Tailwind CSS** | Styling utilitaire pour un design rapide et maintenable. |
+| **Framer Motion** | Moteur d'animations complexe pour le web. |
+| **Lucide React** | Icônes légères et vectorielles. |
+| **Font Optimization** | Google Fonts (`Oswald`, `Barlow`) intégrées nativement. |
 
-### 🎨 Design
-- **Style Premium** - Inspiré d'Apple, BMW, Tesla
-- **Minimaliste** - Design épuré et professionnel
-- **Responsive** - Adapté mobile, tablette, desktop
-- **Animations fluides** - Framer Motion pour les transitions
-- **Mode clair uniquement** - Couleurs EFET (Bleu #0A6CF0)
+<br />
 
----
+## 🚀 Getting Started
 
-## 🛠️ Technologies
+Clonez le projet et lancez le serveur de développement en quelques secondes.
 
-### Frontend
-- **[Next.js 15](https://nextjs.org/)** - Framework React avec App Router
-- **[React 18.3](https://react.dev/)** - Bibliothèque UI
-- **[Tailwind CSS 3.4](https://tailwindcss.com/)** - Framework CSS utility-first
-- **[Framer Motion 11.11](https://www.framer.com/motion/)** - Animations fluides
-- **[Lucide React 0.460](https://lucide.dev/)** - Icônes modernes
-
-### Développement
-- **Node.js** - Runtime JavaScript
-- **npm** - Gestionnaire de paquets
-- **Git** - Contrôle de version
-
----
-
-## 📦 Installation
-
-### Prérequis
-- Node.js 18+
-- npm ou yarn
-- Git
-
-### Étapes
-
-1. **Cloner le repository**
 ```bash
+# 1. Cloner le repository
 git clone https://github.com/votre-username/bde-efet-2025.git
+
+# 2. Installer les dépendances
 cd bde-efet-2025
-```
-
-2. **Installer les dépendances**
-```bash
 npm install
-```
 
-3. **Lancer le serveur de développement**
-```bash
+# 3. Lancer le serveur local
 npm run dev
 ```
 
-4. **Ouvrir dans le navigateur**
-```
-http://localhost:3000
-```
+Visitez `http://localhost:3000` pour voir le résultat.
 
----
+<br />
 
-## 📁 Structure du Projet
-
-```
-bde-efet-2025/
-├── app/
-│   ├── components/          # Composants React
-│   │   ├── Navbar.jsx       # Navigation
-│   │   ├── Hero.jsx         # Section d'accueil
-│   │   ├── Team.jsx         # Équipe BDE
-│   │   ├── Program.jsx      # Programme des événements
-│   │   ├── Values.jsx       # Valeurs du BDE
-│   │   ├── Contact.jsx      # Formulaire de contact
-│   │   └── Footer.jsx       # Pied de page
-│   ├── events/              # Pages détaillées des événements
-│   │   ├── fete-fin-annee/
-│   │   ├── marche-efet/
-│   │   ├── don-du-sang/
-│   │   ├── sortie-barbecue/
-│   │   ├── 8-mars/
-│   │   └── voyage-etudiant/
-│   ├── layout.jsx           # Layout principal
-│   ├── page.jsx             # Page d'accueil
-│   └── globals.css          # Styles globaux
-├── public/
-│   ├── images/
-│   │   └── team/            # Photos de l'équipe (10 membres)
-│   ├── logo.svg             # Logo BDE (à ajouter)
-│   ├── hero-image.jpg       # Image hero (à ajouter)
-│   └── qr.png               # QR code Instagram (à ajouter)
-├── .gitignore
-├── next.config.js
-├── package.json
-├── postcss.config.js
-├── tailwind.config.js
-└── README.md
-```
-
----
-
-## 🎨 Palette de Couleurs
-
-```css
-/* Couleurs EFET */
---efet-blue: #0A6CF0;      /* Bleu principal */
---efet-dark: #0857C3;      /* Bleu foncé (hover) */
---efet-black: #1C1C1E;     /* Noir premium */
-```
-
----
-
-## 📸 Images Requises
-
-### Logo BDE
-- **Emplacement:** `public/logo.svg` (ou .png)
-- **Dimensions:** 512x512px (carré)
-- **Format:** SVG recommandé, PNG avec fond transparent
-- **Usage:** Navbar
-
-### Image Hero
-- **Emplacement:** `public/images/hero-image.jpg`
-- **Dimensions:** 800x1000px minimum (portrait)
-- **Format:** JPG ou PNG
-- **Usage:** Section d'accueil
-
-### Photos Équipe (10 membres)
-- **Emplacement:** `public/images/team/`
-- **Dimensions:** 600x800px minimum (portrait, ratio 3:4)
-- **Format:** PNG obligatoire
-- **Effet:** Noir & blanc avec couleur au survol
-- **Fichiers:**
-  - douaa.jpg - Présidente
-  - hatim.png - Vice-Président
-  - marwa.png - Secrétaire Générale
-  - marjane.png - Trésorière
-  - fati.png - Comité Associatif
-  - imane.png - Comité Événementiel
-  - yassine.png - Comité Événementiel
-  - ikram.png - Comité Événementiel
-  - simo.png - Comité Communication
-  - amira.png - Support IT
-
-### QR Code Instagram
-- **Emplacement:** `public/qr.png`
-- **Dimensions:** 500x500px (carré)
-- **Format:** PNG
-- **Usage:** Section contact
-
----
-
-## 🚀 Déploiement
-
-### Vercel (Recommandé)
-1. Push le code sur GitHub
-2. Connecter le repo à [Vercel](https://vercel.com)
-3. Déploiement automatique à chaque push
-
-### Build de production
-```bash
-npm run build
-npm start
-```
-
----
-
-## 📝 Scripts Disponibles
+## 📂 Structure du Projet
 
 ```bash
-# Développement
-npm run dev          # Lance le serveur de développement
-
-# Production
-npm run build        # Crée le build de production
-npm start            # Lance le serveur de production
-
-# Linting
-npm run lint         # Vérifie le code
+├── 📁 app/
+│   ├── 📁 components/   # Composants atomiques (Hero, Team, Gallery...)
+│   ├── 📁 events/       # Pages dynamiques des événements
+│   ├── 📄 layout.js     # Layout global (Fonts, Metadata)
+│   └── 📄 page.js       # Point d'entrée principal
+├── 📁 public/
+│   ├── 📁 events/       # Photos optimisées des événements
+│   ├── 📁 images/       # Assets statiques (Logos, Team photos)
+│   └── 📄 logo.svg      # Logo vectoriel
+└── 📄 tailwind.config.js # Configuration du Design System
 ```
 
----
+<br />
 
-## 👥 Équipe BDE EFET 2025
+## 👑 Crédits
 
-### Bureau Exécutif
-- **Douaa** - Présidente, Trésorière & Comité Associatif
-- **Lamarti Hatim** - Vice-Président & Développeur Web
-- **Marwa** - Secrétaire Générale
+Développé avec ❤️ et ☕ par **[Hatim Lamarti](https://instagram.com/hatim_lamarti)**.
 
-### Trésorière & Support
-- **Marjane Abdessamia** - Trésorière & Support IT
-
-### Comités
-- **Fati** - Comité Associatif
-- **Imane** - Comité Événementiel & Communication
-- **Yassine** - Comité Événementiel
-- **Ikram** - Comité Événementiel
-- **Simo** - Comité Communication
-- **Amira** - Support IT
-
----
-
-## 🤝 Contribution
-
-Les contributions sont les bienvenues ! Pour contribuer :
-
-1. Fork le projet
-2. Créer une branche (`git checkout -b feature/AmazingFeature`)
-3. Commit les changements (`git commit -m 'Add some AmazingFeature'`)
-4. Push vers la branche (`git push origin feature/AmazingFeature`)
-5. Ouvrir une Pull Request
-
----
-
-## 📄 License
-
-Ce projet est sous licence MIT. Voir le fichier `LICENSE` pour plus de détails.
-
----
-
-## 📞 Contact
-
-**BDE EFET Casablanca**
-- 📧 Email: bde@efet.ma
-- 📱 Instagram: [@efet_bde](https://instagram.com/efet_bde)
-- 📍 Adresse: EFET Casablanca, Maroc
-
-**Développeur Web**
-- 👨‍💻 Lamarti Hatim - Vice-Président BDE & Développeur Web
-
----
-
-## 🙏 Remerciements
-
-- L'équipe BDE EFET 2025
-- Les étudiants de l'EFET Casablanca
-- La direction de l'EFET
-- Tous les contributeurs
+- **Design**: Hatim L.
+- **Development**: Hatim L.
+- **Photos**: Team Média BDE EFET.
 
 ---
 
 <div align="center">
-  <p>Fait avec ❤️ par le BDE EFET 2025</p>
-  <p>
-    <a href="https://instagram.com/efet_bde">Instagram</a> •
-    <a href="mailto:bde@efet.ma">Email</a>
-  </p>
+  <p>© 2025 BDE EFET. Tous droits réservés.</p>
 </div>

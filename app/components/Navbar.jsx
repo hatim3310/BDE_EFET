@@ -1,175 +1,169 @@
 'use client'
 
-import { motion } from 'framer-motion'
-import { useState, useEffect } from 'react'
+import { motion, useScroll, useMotionValueEvent } from 'framer-motion'
+import { useState } from 'react'
 import { Menu, X } from 'lucide-react'
 import Image from 'next/image'
 
 /**
- * Navbar - Navigation premium minimaliste
- * Avec logo EFET et menu responsive
+ * Navbar - Navigation Ultra Premium (Dark Mode)
  */
 export default function Navbar() {
-  const [isScrolled, setIsScrolled] = useState(false)
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const [hidden, setHidden] = useState(false)
+  const [scrolled, setScrolled] = useState(false)
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const { scrollY } = useScroll()
 
-  // Détection du scroll
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50)
+  useMotionValueEvent(scrollY, "change", (latest) => {
+    const previous = scrollY.getPrevious()
+    if (latest > previous && latest > 150) {
+      setHidden(true)
+    } else {
+      setHidden(false)
     }
+    setScrolled(latest > 50)
+  })
 
-    window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
-
-  // Navigation items
   const navItems = [
     { label: 'Accueil', href: '#hero' },
     { label: 'Équipe', href: '#team' },
     { label: 'Programme', href: '#program' },
     { label: 'Valeurs', href: '#gallery' },
-    { label: 'Contact', href: '#contact' },
+    { label: 'Souvenirs', href: '#events-gallery' },
   ]
 
-  // Fonction de scroll fluide
   const scrollToSection = (href) => {
     const element = document.querySelector(href)
     if (element) {
-      // L'élément existe sur la page actuelle, scroll direct
       element.scrollIntoView({ behavior: 'smooth', block: 'start' })
-      setIsMobileMenuOpen(false)
-    } else {
-      // L'élément n'existe pas, on est sur une autre page - redirection vers la page d'accueil
-      window.location.href = '/' + href
+      setMobileMenuOpen(false)
     }
   }
 
   return (
     <>
-      {/* Navbar */}
       <motion.nav
-        initial={{ y: -100 }}
-        animate={{ y: 0 }}
-        transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-          isScrolled
-            ? 'bg-white/95 backdrop-blur-md shadow-sm border-b border-gray-100'
-            : 'bg-transparent'
-        }`}
+        variants={{
+          visible: { y: 0 },
+          hidden: { y: -100 },
+        }}
+        animate={hidden ? "hidden" : "visible"}
+        transition={{ duration: 0.35, ease: "easeInOut" }}
+        className={`fixed top-0 inset-x-0 z-50 h-20 flex items-center justify-center pointer-events-none`}
       >
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="flex items-center justify-between h-20">
-            {/* Logo */}
+        <div className={`w-full max-w-7xl px-6 flex items-center justify-between pointer-events-auto transition-all duration-500 ${scrolled ? 'mt-4' : 'mt-0'}`}>
+
+          {/* Logo Area */}
+          <div className={`
+             flex items-center gap-3 px-4 py-2 rounded-full transition-all duration-500
+             ${scrolled ? 'glass' : 'bg-transparent'}
+          `}>
             <motion.div
               whileHover={{ scale: 1.05 }}
-              className="flex items-center gap-3 cursor-pointer"
               onClick={() => scrollToSection('#hero')}
+              className="cursor-pointer flex items-center gap-3"
             >
-              {/* Placeholder pour le logo - dimensions recommandées */}
-              <div className="relative w-12 h-12 flex items-center justify-center bg-efet-blue/10 rounded-lg overflow-hidden">
-                {/* Le logo sera placé ici */}
-                <Image
-                  src="/logo.svg"
-                  alt="BDE EFET Logo"
-                  width={48}
-                  height={48}
-                  className="object-contain"
-                  onError={(e) => {
-                    // Fallback si le logo n'existe pas encore
-                    e.target.style.display = 'none'
-                    e.target.parentElement.innerHTML = '<span class="text-efet-blue font-bold text-xl">BDE</span>'
-                  }}
-                />
+              {/* Logo sans altération de couleurs */}
+              <div className="relative w-10 h-10 flex items-center justify-center rounded-full overflow-hidden">
+                <Image src="/logo.svg" alt="BDE" width={32} height={32} className="object-contain" />
               </div>
-
-              {/* Texte à côté du logo */}
-              <div className="hidden sm:block">
-                <div className="text-sm font-bold text-efet-black tracking-tight">
-                  BDE EFET
-                </div>
-                <div className="text-xs text-gray-500">2025</div>
-              </div>
+              <span className={`font-outfit font-bold text-lg tracking-tight ${scrolled ? 'text-white' : 'text-white'}`}>
+                BDE EFET
+              </span>
             </motion.div>
+          </div>
 
-            {/* Menu Desktop */}
-            <div className="hidden md:flex items-center gap-1">
+          {/* Desktop Menu - Floating Capsule (Dark Mode) */}
+          <div className="hidden lg:block">
+            <div className={`
+              flex items-center gap-1 px-2 py-2 rounded-full transition-all duration-500
+              ${scrolled ? 'glass' : 'bg-black/30 backdrop-blur-md border border-white/10'}
+            `}>
               {navItems.map((item, index) => (
                 <button
                   key={index}
                   onClick={() => scrollToSection(item.href)}
-                  className="px-4 py-2 text-sm font-medium text-gray-700 hover:text-efet-blue transition-colors duration-300 relative group"
+                  className="relative px-5 py-2.5 text-sm font-medium text-gray-300 hover:text-white transition-colors rounded-full group"
                 >
-                  {item.label}
-                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-efet-blue group-hover:w-full transition-all duration-300"></span>
+                  <span className="relative z-10">{item.label}</span>
+                  <motion.div
+                    className="absolute inset-0 bg-white/10 rounded-full opacity-0 group-hover:opacity-100"
+                    layoutId="navbar-hover"
+                    transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
+                  />
                 </button>
               ))}
 
-              {/* CTA Button */}
+              <div className="w-px h-6 bg-white/10 mx-2"></div>
+
               <button
                 onClick={() => scrollToSection('#contact')}
-                className="ml-4 px-6 py-2 bg-efet-blue text-white text-sm font-medium hover:bg-efet-dark transition-all duration-300"
+                className="px-6 py-2.5 bg-efet-blue text-white text-sm font-medium rounded-full hover:bg-efet-dark transition-colors shadow-lg shadow-efet-blue/20"
               >
-                Nous Contacter
+                Contact
               </button>
             </div>
+          </div>
 
-            {/* Menu Mobile - Burger Icon */}
+          {/* Mobile Toggle */}
+          <div className="lg:hidden pointer-events-auto">
             <button
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="md:hidden p-2 text-gray-700 hover:text-efet-blue transition-colors"
-              aria-label="Toggle menu"
+              onClick={() => setMobileMenuOpen(true)}
+              className={`p-3 rounded-full ${scrolled ? 'glass' : 'bg-black/30 backdrop-blur-md'}`}
             >
-              {isMobileMenuOpen ? (
-                <X className="w-6 h-6" />
-              ) : (
-                <Menu className="w-6 h-6" />
-              )}
+              <Menu className="w-6 h-6 text-white" />
             </button>
           </div>
+
         </div>
       </motion.nav>
 
-      {/* Menu Mobile - Fullscreen Overlay */}
-      {isMobileMenuOpen && (
-        <motion.div
-          initial={{ opacity: 0, x: '100%' }}
-          animate={{ opacity: 1, x: 0 }}
-          exit={{ opacity: 0, x: '100%' }}
-          transition={{ duration: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
-          className="fixed inset-0 z-40 bg-white md:hidden"
-        >
-          {/* Spacer pour la navbar */}
-          <div className="h-20"></div>
+      {/* Mobile Menu Overlay (Dark Mode) */}
+      <motion.div
+        initial={{ opacity: 0, pointerEvents: 'none' }}
+        animate={{
+          opacity: mobileMenuOpen ? 1 : 0,
+          pointerEvents: mobileMenuOpen ? 'auto' : 'none'
+        }}
+        className="fixed inset-0 z-[60] bg-black/90 backdrop-blur-xl"
+      >
+        <div className="absolute top-6 right-6">
+          <button
+            onClick={() => setMobileMenuOpen(false)}
+            className="p-2 bg-white/10 rounded-full hover:rotate-90 transition-transform duration-300 border border-white/10"
+          >
+            <X className="w-6 h-6 text-white" />
+          </button>
+        </div>
 
-          {/* Menu Items */}
-          <div className="flex flex-col items-center justify-center min-h-[calc(100vh-5rem)] gap-6 px-6">
-            {navItems.map((item, index) => (
-              <motion.button
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.3, delay: index * 0.1 }}
-                onClick={() => scrollToSection(item.href)}
-                className="text-3xl font-bold text-efet-black hover:text-efet-blue transition-colors"
-              >
-                {item.label}
-              </motion.button>
-            ))}
-
-            {/* CTA Mobile */}
+        <div className="flex flex-col items-center justify-center h-full gap-8">
+          {navItems.map((item, index) => (
             <motion.button
+              key={index}
               initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.3, delay: navItems.length * 0.1 }}
-              onClick={() => scrollToSection('#contact')}
-              className="mt-8 px-10 py-4 bg-efet-blue text-white text-lg font-medium hover:bg-efet-dark transition-all duration-300"
+              animate={{ opacity: mobileMenuOpen ? 1 : 0, y: mobileMenuOpen ? 0 : 20 }}
+              transition={{ delay: 0.1 + index * 0.1 }}
+              onClick={() => scrollToSection(item.href)}
+              className="text-4xl font-outfit font-bold text-white hover:text-efet-blue transition-colors"
             >
-              Nous Contacter
+              {item.label}
             </motion.button>
-          </div>
-        </motion.div>
-      )}
+          ))}
+
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: mobileMenuOpen ? 1 : 0, scale: mobileMenuOpen ? 1 : 0.9 }}
+            transition={{ delay: 0.4 }}
+          >
+            <button
+              onClick={() => scrollToSection('#contact')}
+              className="mt-8 px-10 py-4 bg-efet-blue text-white rounded-full text-xl font-medium shadow-xl shadow-efet-blue/30"
+            >
+              Nous Rejoindre
+            </button>
+          </motion.div>
+        </div>
+      </motion.div>
     </>
   )
 }

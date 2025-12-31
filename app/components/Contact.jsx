@@ -1,113 +1,52 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { useInView } from 'framer-motion'
-import { useRef } from 'react'
-import { Mail, Instagram, QrCode } from 'lucide-react'
+import { Instagram, Send, Sparkles } from 'lucide-react'
 
-/**
- * Contact Section - Design minimaliste et professionnel
- * Palette monochrome avec accent subtil
- */
 export default function Contact() {
-  const ref = useRef(null)
-  const isInView = useInView(ref, { once: true, margin: '-100px' })
-
-  const contactInfo = [
-    {
-      icon: Instagram,
-      label: 'Instagram',
-      value: '@efet_bde',
-      link: 'https://instagram.com/efet_bde',
-    },
-  ]
-
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.15,
-      },
-    },
-  }
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.7,
-        ease: [0.25, 0.1, 0.25, 1],
-      },
-    },
-  }
-
   return (
-    <section
-      id="contact"
-      className="relative bg-gray-50 py-24 md:py-32"
-      ref={ref}
-    >
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        {/* En-tête */}
+    <section id="contact" className="py-32 bg-black flex flex-col items-center justify-center relative overflow-hidden text-white">
+      {/* Background Blobs Dark Mode */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-to-tr from-blue-900/20 to-purple-900/20 rounded-full blur-[120px] opacity-40 -z-10 animate-pulse-glow"></div>
+
+      {/* Grid Pattern */}
+      <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center opacity-10 pointer-events-none"></div>
+
+      <div className="container-premium text-center relative z-10">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
-          className="text-center mb-20"
+          initial={{ opacity: 0, scale: 0.9 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8 }}
+          className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 text-white mb-8 shadow-lg shadow-white/5"
         >
-          <h2 className="text-5xl md:text-7xl font-bold text-efet-black mb-6 tracking-tight">
-            Contactez-nous
-          </h2>
-          <div className="w-16 h-0.5 bg-efet-blue mx-auto mb-8"></div>
-          <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto font-light">
-            Une idée ? Une question ? Une envie de participer ?
-            <br />
-            Notre équipe est à votre écoute
-          </p>
+          <Sparkles size={16} className="text-yellow-400" />
+          <span className="text-sm font-medium tracking-wide">Rejoignez l'aventure</span>
         </motion.div>
 
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          animate={isInView ? 'visible' : 'hidden'}
-          className="max-w-4xl mx-auto"
-        >
-          {/* Informations de contact */}
-          <div className="flex justify-center mb-16">
-            {contactInfo.map((contact, index) => (
-              <motion.a
-                key={index}
-                variants={itemVariants}
-                href={contact.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group block max-w-md w-full"
-              >
-                <div className="border border-gray-200 bg-white p-10 hover:border-efet-blue transition-all duration-500 h-full">
-                  <div className="flex items-start gap-4">
-                    <div className="p-3 border border-gray-200 group-hover:border-efet-blue group-hover:bg-efet-blue transition-all duration-500">
-                      <contact.icon className="w-6 h-6 text-efet-blue group-hover:text-white transition-colors duration-500" />
-                    </div>
-                    <div className="flex-1">
-                      <p className="text-xs uppercase tracking-[0.2em] text-gray-500 mb-2 font-medium">
-                        {contact.label}
-                      </p>
-                      <p className="text-xl md:text-2xl font-semibold text-efet-blue">
-                        {contact.value}
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </motion.a>
-            ))}
-          </div>
+        <h2 className="font-outfit font-black text-6xl md:text-8xl lg:text-9xl mb-8 tracking-tighter text-white drop-shadow-2xl">
+          LET'S CONNECT
+        </h2>
 
-          {/* QR Code */}
-          
-        </motion.div>
+        <p className="text-xl md:text-2xl text-gray-400 max-w-2xl mx-auto mb-12 font-light">
+          Vous avez une idée ? Une suggestion ? Ou vous voulez simplement participer à la vie du campus ?
+        </p>
+
+        <div className="flex flex-col md:flex-row gap-6 justify-center items-center">
+          <motion.a
+            href="https://instagram.com/efet_bde"
+            target="_blank"
+            rel="noopener noreferrer"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="flex items-center gap-3 px-8 py-5 rounded-full bg-gradient-to-tr from-purple-600 to-pink-600 text-white shadow-xl shadow-purple-500/20 hover:shadow-purple-500/40 transition-all border border-white/10"
+          >
+            <Instagram size={24} />
+            <span className="font-bold text-lg">Suivez-nous sur Instagram</span>
+          </motion.a>
+
+
+        </div>
+
       </div>
     </section>
   )

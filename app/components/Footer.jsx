@@ -1,197 +1,76 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { ArrowUp, Instagram, Mail, MapPin, Phone } from 'lucide-react'
-import { useState, useEffect } from 'react'
+import { ArrowUp, Heart, Instagram } from 'lucide-react'
 import Link from 'next/link'
 
-/**
- * Footer - Design premium et professionnel
- * Style épuré avec navigation et informations de contact
- */
 export default function Footer() {
-  const [showBackToTop, setShowBackToTop] = useState(false)
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setShowBackToTop(window.scrollY > 500)
-    }
-
-    window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
-
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' })
   }
 
   return (
-    <>
-      {/* Bouton "Back to top" minimaliste */}
-      {showBackToTop && (
-        <motion.button
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: 20 }}
-          onClick={scrollToTop}
-          className="fixed bottom-8 right-8 z-50 bg-efet-blue text-white p-4 hover:bg-efet-dark transition-all duration-300"
-          aria-label="Retour en haut"
-        >
-          <ArrowUp className="w-5 h-5" strokeWidth={1.5} />
-        </motion.button>
-      )}
+    <footer className="bg-black text-white pt-32 pb-10 border-t border-white/5 relative overflow-hidden">
 
-      {/* Footer principal */}
-      <footer className="relative bg-efet-black text-white">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8 py-20">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8">
-            {/* Section BDE EFET */}
+      {/* Giant Watermark */}
+      <div className="absolute top-0 left-0 w-full overflow-hidden pointer-events-none opacity-[0.03]">
+        <h1 className="text-[20vw] font-black leading-none text-white whitespace-nowrap animate-marquee">
+          BDE EFET 2025 • BDE EFET 2025 •
+        </h1>
+      </div>
+
+      <div className="container-premium relative z-10">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-12 mb-24">
+
+          {/* Brand */}
+          <div className="md:col-span-6 space-y-8">
             <div>
-              <h3 className="text-xl font-bold mb-6 tracking-tight">
-                BDE EFET 2025
-              </h3>
-              <p className="text-gray-400 text-sm leading-relaxed mb-6">
-                Bureau des Étudiants de l'EFET Casablanca - Une équipe passionnée au service des étudiants
-              </p>
-              <div className="flex items-center gap-4">
-                <a
-                  href="https://instagram.com/efet_bde"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-10 h-10 border border-gray-700 flex items-center justify-center hover:border-efet-blue hover:text-efet-blue transition-all"
-                  aria-label="Instagram"
-                >
-                  <Instagram className="w-4 h-4" />
-                </a>
-                <a
-                  href="mailto:bde@efet.ma"
-                  className="w-10 h-10 border border-gray-700 flex items-center justify-center hover:border-efet-blue hover:text-efet-blue transition-all"
-                  aria-label="Email"
-                >
-                  <Mail className="w-4 h-4" />
-                </a>
-              </div>
+              <h2 className="font-outfit font-bold text-4xl mb-2">BDE EFET</h2>
+              <p className="text-efet-blue font-medium">Casablanca Campus</p>
             </div>
+            <p className="text-gray-500 max-w-sm leading-relaxed font-light text-lg">
+              Le cœur battant de la vie étudiante. Nous sommes là pour créer, inspirer et rassembler la prochaine génération de leaders.
+            </p>
 
-            {/* Navigation */}
-            <div>
-              <h4 className="text-sm font-semibold uppercase tracking-wider text-gray-500 mb-6">
-                Navigation
-              </h4>
-              <ul className="space-y-4">
-                <li>
-                  <Link href="/#home" className="text-gray-400 hover:text-white transition-colors text-sm">
-                    Accueil
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/#team" className="text-gray-400 hover:text-white transition-colors text-sm">
-                    Équipe
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/#program" className="text-gray-400 hover:text-white transition-colors text-sm">
-                    Programme
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/#values" className="text-gray-400 hover:text-white transition-colors text-sm">
-                    Valeurs
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/#contact" className="text-gray-400 hover:text-white transition-colors text-sm">
-                    Contact
-                  </Link>
-                </li>
-              </ul>
-            </div>
-
-            {/* Événements */}
-            <div>
-              <h4 className="text-sm font-semibold uppercase tracking-wider text-gray-500 mb-6">
-                Événements 2025
-              </h4>
-              <ul className="space-y-4">
-                <li>
-                  <Link href="/events/fete-fin-annee" className="text-gray-400 hover:text-white transition-colors text-sm">
-                    Fête de fin d'année
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/events/marche-efet" className="text-gray-400 hover:text-white transition-colors text-sm">
-                    Marché de l'EFET
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/events/don-du-sang" className="text-gray-400 hover:text-white transition-colors text-sm">
-                    Don du Sang
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/events/sortie-barbecue" className="text-gray-400 hover:text-white transition-colors text-sm">
-                    Sortie Barbecue
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/events/8-mars" className="text-gray-400 hover:text-white transition-colors text-sm">
-                    8 Mars
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/events/voyage-etudiant" className="text-gray-400 hover:text-white transition-colors text-sm">
-                    Voyage Étudiant
-                  </Link>
-                </li>
-              </ul>
-            </div>
-
-            {/* Contact */}
-            <div>
-              <h4 className="text-sm font-semibold uppercase tracking-wider text-gray-500 mb-6">
-                Contact
-              </h4>
-              <ul className="space-y-4">
-                <li className="flex items-start gap-3 text-gray-400 text-sm">
-                  <MapPin className="w-4 h-4 flex-shrink-0 mt-0.5" />
-                  <span>EFET Casablanca, Maroc</span>
-                </li>
-                <li className="flex items-start gap-3 text-gray-400 text-sm">
-                  <Instagram className="w-4 h-4 flex-shrink-0 mt-0.5" />
-                  <a
-                    href="https://instagram.com/efet_bde"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="hover:text-white transition-colors"
-                  >
-                    @efet_bde
-                  </a>
-                </li>
-              </ul>
+            <div className="flex gap-4">
+              <a href="https://instagram.com/efet_bde" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center hover:bg-white hover:text-black transition-all">
+                <Instagram size={18} />
+              </a>
             </div>
           </div>
 
-          {/* Séparateur */}
-          <div className="w-full h-px bg-gray-800 my-12"></div>
-
-          {/* Bas de page */}
-          <div className="flex flex-col md:flex-row justify-between items-center gap-6">
-            <div className="text-center md:text-left">
-              <p className="text-gray-400 text-sm mb-2">
-                © 2025 BDE EFET Casablanca — Tous droits réservés
-              </p>
-              <p className="text-gray-600 text-xs">
-                Développé par <span className="text-gray-400 font-medium">Lamarti Hatim</span> — Vice-Président & Développeur Web
-              </p>
-            </div>
-            <div>
-              <p className="text-gray-600 text-xs uppercase tracking-wider">
-                Next.js • Tailwind CSS • Framer Motion
-              </p>
-            </div>
+          {/* Links */}
+          <div className="md:col-span-3">
+            <h3 className="font-bold mb-8 text-white uppercase tracking-wider text-xs">Navigation</h3>
+            <ul className="space-y-4 text-gray-500">
+              <li><Link href="#hero" className="hover:text-white transition-colors">Accueil</Link></li>
+              <li><Link href="#team" className="hover:text-white transition-colors">Équipe</Link></li>
+              <li><Link href="#program" className="hover:text-white transition-colors">Agenda</Link></li>
+              <li><Link href="#gallery" className="hover:text-white transition-colors">Valeurs</Link></li>
+            </ul>
           </div>
+
+          {/* Back to Top */}
+          <div className="md:col-span-3 flex justify-end items-start">
+            <button
+              onClick={scrollToTop}
+              className="w-14 h-14 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-efet-blue hover:border-efet-blue transition-all group"
+            >
+              <ArrowUp className="text-white group-hover:-translate-y-1 transition-transform" />
+            </button>
+          </div>
+
         </div>
-      </footer>
-    </>
+
+        {/* Bottom Bar */}
+        <div className="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-600">
+          <p>© {new Date().getFullYear()} BDE EFET. Tous droits réservés.</p>
+          <p className="flex items-center gap-2">
+            Fait avec <Heart size={14} className="text-efet-blue fill-efet-blue animate-pulse" /> par
+            <a href="https://instagram.com/laamarti_hatim" target="_blank" rel="noopener noreferrer" className="text-gray-300 font-medium hover:text-white transition-colors cursor-pointer underline decoration-dotted underline-offset-4 hover:decoration-solid">Laamarti Hatim</a>
+          </p>
+        </div>
+      </div>
+    </footer>
   )
 }

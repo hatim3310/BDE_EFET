@@ -1,126 +1,105 @@
 'use client'
 
-import { motion } from 'framer-motion'
-import { useInView } from 'framer-motion'
+import { motion, useScroll, useTransform } from 'framer-motion'
 import { useRef } from 'react'
+import { Shield, Users, Lightbulb, HeartHandshake } from 'lucide-react'
 
-/**
- * Gallery Section - Design minimaliste et professionnel
- * Focus sur l'élégance et la simplicité
- */
+const values = [
+  {
+    icon: Shield,
+    title: 'Excellence',
+    text: "Nous ne visons pas juste la réussite, mais l'exceptionnel. Chaque projet est une signature de qualité.",
+    gradient: "from-blue-500 to-cyan-500"
+  },
+  {
+    icon: Users,
+    title: 'Unité',
+    text: "Plus qu'une équipe, une famille. Nous avançons ensemble, forts de nos différences et unis par nos ambitions.",
+    gradient: "from-purple-500 to-pink-500"
+  },
+  {
+    icon: Lightbulb,
+    title: 'Innovation',
+    text: "Oser, créer, surprendre. Nous repoussons les limites du possible pour offrir des expériences inédites.",
+    gradient: "from-amber-400 to-orange-500"
+  },
+  {
+    icon: HeartHandshake,
+    title: 'Engagement',
+    text: "Au service de chaque étudiant. Votre voix est notre boussole, votre satisfaction notre moteur.",
+    gradient: "from-emerald-400 to-green-500"
+  },
+]
+
 export default function Gallery() {
-  const ref = useRef(null)
-  const isInView = useInView(ref, { once: true, margin: '-100px' })
-
-  // Valeurs et missions du BDE
-  const values = [
-    {
-      title: 'Excellence',
-      description: 'Viser l\'excellence dans chaque initiative et projet que nous entreprenons',
-    },
-    {
-      title: 'Unité',
-      description: 'Renforcer les liens entre étudiants et créer une communauté soudée',
-    },
-    {
-      title: 'Innovation',
-      description: 'Proposer des événements créatifs et des expériences uniques',
-    },
-    {
-      title: 'Engagement',
-      description: 'Être à l\'écoute et répondre aux besoins de tous les étudiants',
-    },
-  ]
-
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.15,
-      },
-    },
-  }
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.7,
-        ease: [0.25, 0.1, 0.25, 1],
-      },
-    },
-  }
+  const containerRef = useRef(null)
 
   return (
-    <section id="gallery" className="relative bg-white py-24 md:py-32" ref={ref}>
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        {/* En-tête */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
-          className="text-center mb-20"
-        >
-          <h2 className="text-5xl md:text-7xl font-bold text-efet-black mb-6 tracking-tight">
-            Nos Valeurs
-          </h2>
-          <div className="w-16 h-0.5 bg-efet-blue mx-auto mb-8"></div>
-          <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto font-light">
-            Les principes qui guident nos actions et définissent notre mission
-          </p>
-        </motion.div>
+    <section id="gallery" className="relative py-32 bg-black text-white overflow-hidden">
+      {/* Dynamic Background */}
+      <div className="absolute top-0 w-full h-px bg-gradient-to-r from-transparent via-white/20 to-transparent"></div>
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-blue-900/20 via-black to-black pointer-events-none"></div>
 
-        {/* Grille des valeurs */}
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          animate={isInView ? 'visible' : 'hidden'}
-          className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10 mb-20"
-        >
-          {values.map((value, index) => (
+      <div className="container-premium relative z-10">
+
+        {/* Header Manifesto */}
+        <div className="flex flex-col lg:flex-row gap-16 items-start mb-24">
+          <div className="lg:w-1/2 sticky top-32">
             <motion.div
-              key={index}
-              variants={itemVariants}
-              className="group"
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
             >
-              <div className="border border-gray-200 p-10 h-full hover:border-efet-blue transition-all duration-500">
-                <div className="mb-6">
-                  <div className="text-6xl font-bold text-gray-100 group-hover:text-gray-200 transition-colors duration-500">
-                    0{index + 1}
-                  </div>
-                </div>
-                <h3 className="text-2xl md:text-3xl font-bold text-efet-black mb-4 tracking-tight">
-                  {value.title}
-                </h3>
-                <p className="text-gray-600 leading-relaxed font-light">
-                  {value.description}
-                </p>
-              </div>
+              <span className="text-efet-blue font-bold tracking-widest text-sm uppercase mb-4 block">Notre ADN</span>
+              <h2 className="font-outfit font-black text-4xl md:text-7xl lg:text-8xl leading-[0.9] mb-8">
+                NOS<br />
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-600">PILIERS</span>
+              </h2>
+              <p className="text-xl text-gray-400 font-light leading-relaxed max-w-md border-l-2 border-efet-blue/30 pl-6">
+                Quatre valeurs fondamentales qui sculptent notre vision et guident chacune de nos actions au quotidien.
+              </p>
             </motion.div>
-          ))}
-        </motion.div>
-
-        {/* Citation */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ delay: 0.6, duration: 0.8 }}
-          className="text-center max-w-4xl mx-auto"
-        >
-          <div className="border-l-2 border-efet-blue pl-8 py-6">
-            <blockquote className="text-2xl md:text-3xl font-light text-efet-black mb-6 text-left italic">
-              "Ensemble, nous créons plus que des événements.
-              Nous bâtissons une communauté, une famille, un héritage."
-            </blockquote>
-            <p className="text-sm uppercase tracking-[0.2em] text-gray-500 text-left">
-              Bureau des Étudiants EFET 2025
-            </p>
           </div>
-        </motion.div>
+
+          <div className="lg:w-1/2 w-full grid gap-6">
+            {values.map((item, index) => (
+              <ValueCard key={index} item={item} index={index} />
+            ))}
+          </div>
+        </div>
+
       </div>
     </section>
+  )
+}
+
+function ValueCard({ item, index }) {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ delay: index * 0.1, duration: 0.5 }}
+      whileHover={{ scale: 1.02 }}
+      className="group relative p-8 rounded-2xl bg-white/5 border border-white/10 hover:border-white/20 overflow-hidden transition-all duration-300"
+    >
+      <div className={`absolute top-0 right-0 p-32 opacity-10 rounded-full blur-3xl bg-gradient-to-br ${item.gradient} group-hover:opacity-20 transition-opacity duration-500`}></div>
+
+      <div className="relative z-10 flex items-start gap-6">
+        <div className={`p-4 rounded-xl bg-gradient-to-br ${item.gradient} bg-opacity-10 text-white shadow-lg`}>
+          <item.icon size={28} />
+        </div>
+        <div>
+          <h3 className="font-outfit font-bold text-2xl mb-2 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-white group-hover:to-gray-400 transition-colors">
+            {item.title}
+          </h3>
+          <p className="text-gray-400 font-light leading-relaxed group-hover:text-gray-300 transition-colors">
+            {item.text}
+          </p>
+        </div>
+      </div>
+
+      {/* Decorative Lines */}
+      <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-white/10 to-transparent transform scale-x-0 group-hover:scale-x-100 transition-transform duration-700"></div>
+    </motion.div>
   )
 }

@@ -1,11 +1,20 @@
 /* ===== CUSTOM FONTS ===== */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800&display=swap');
+/* Note: 'Grack' is a paid font. Using 'Oswald' and 'Barlow Condensed' as the closest free professional web alternatives. */
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&family=Barlow+Condensed:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* ===== BASE STYLES - APPLE INSPIRED ===== */
+/* ===== BASE VARIABLES ===== */
+:root {
+  --foreground-rgb: 255, 255, 255;
+  --background-start-rgb: 10, 10, 10;
+  --background-end-rgb: 0, 0, 0;
+  --primary-rgb: 10, 108, 240;
+}
+
+/* ===== BASE STYLES ===== */
 * {
   margin: 0;
   padding: 0;
@@ -19,259 +28,94 @@ html {
 }
 
 body {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
-  background-color: #ffffff;
-  color: #1C1C1E;
+  font-family: 'Oswald', sans-serif;
+  /* Applied globally as requested */
+  background-color: #050505;
+  color: #ffffff;
   overflow-x: hidden;
+  font-weight: 300;
+  /* Default light/regular weight, not bold */
 }
 
-/* ===== CUSTOM SCROLLBAR - APPLE STYLE ===== */
-::-webkit-scrollbar {
-  width: 10px;
-}
-
-::-webkit-scrollbar-track {
-  background: #f5f5f7;
-}
-
-::-webkit-scrollbar-thumb {
-  background: #0A6CF0;
-  border-radius: 10px;
-  transition: all 0.3s ease;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: #053A73;
-}
-
-/* ===== UTILITIES ===== */
+/* ===== ADVANCED UTILITIES ===== */
 @layer utilities {
 
-  /* Glassmorphism Effect */
+  /* Dark Glassmorphism */
   .glass {
-    background: rgba(255, 255, 255, 0.75);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.3);
+    background: rgba(20, 20, 20, 0.6);
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
   }
 
-  .glass-dark {
-    background: rgba(5, 58, 115, 0.15);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-  }
-
-  /* Premium Shadow - Apple Style */
-  .shadow-premium {
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-  }
-
-  .shadow-premium-lg {
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.12);
-  }
-
-  /* Gradient Text */
-  .gradient-text {
-    background: linear-gradient(135deg, #0A6CF0 0%, #053A73 100%);
+  /* Text Gradients */
+  .text-gradient {
+    background: linear-gradient(135deg, #3B82F6 0%, #8B5CF6 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
 
-  /* Smooth Transitions */
-  .transition-premium {
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  /* Custom Scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
   }
 
-  /* Grid Layout - Apple Style */
-  .grid-apple {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
+  ::-webkit-scrollbar-track {
+    background: #050505;
   }
 
-  /* Button Hover Effect */
-  /* Button Hover Effect */
-  .btn-premium {
-    @apply px-8 py-4 rounded-full font-medium text-white bg-efet-blue hover:bg-efet-dark hover:scale-105 active:scale-95;
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  ::-webkit-scrollbar-thumb {
+    background: #333;
+    border-radius: 4px;
+    border: 1px solid #050505;
   }
 
-  .btn-premium:hover {
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.12);
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555;
   }
 
-  .btn-outline {
-    @apply px-8 py-4 rounded-full font-medium text-efet-blue border-2 border-efet-blue hover:bg-efet-blue hover:text-white;
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  .container-premium {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    max-width: 80rem;
+    /* max-w-7xl */
+  }
+
+  @media (min-width: 640px) {
+    .container-premium {
+      padding-left: 2rem;
+      padding-right: 2rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .container-premium {
+      padding-left: 4rem;
+      padding-right: 4rem;
+    }
   }
 }
 
 /* ===== ANIMATIONS ===== */
-@keyframes fadeUp {
-  from {
-    opacity: 0;
-    transform: translateY(40px);
+@keyframes float {
+  0% {
+    transform: translateY(0px);
   }
 
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
+  50% {
+    transform: translateY(-20px);
   }
 
-  to {
-    opacity: 1;
+  100% {
+    transform: translateY(0px);
   }
 }
 
-@keyframes slideLeft {
-  from {
-    opacity: 0;
-    transform: translateX(-60px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-@keyframes slideRight {
-  from {
-    opacity: 0;
-    transform: translateX(60px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-@keyframes scaleIn {
-  from {
-    opacity: 0;
-    transform: scale(0.9);
-  }
-
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-/* Animation Classes */
-.animate-fade-up {
-  animation: fadeUp 0.8s ease-out forwards;
-}
-
-.animate-fade-in {
-  animation: fadeIn 1s ease-out forwards;
-}
-
-.animate-slide-left {
-  animation: slideLeft 0.7s ease-out forwards;
-}
-
-.animate-slide-right {
-  animation: slideRight 0.7s ease-out forwards;
-}
-
-.animate-scale-in {
-  animation: scaleIn 0.6s ease-out forwards;
-}
-
-/* Delay utilities for staggered animations */
-.delay-100 {
-  animation-delay: 0.1s;
-}
-
-.delay-200 {
-  animation-delay: 0.2s;
-}
-
-.delay-300 {
-  animation-delay: 0.3s;
-}
-
-.delay-400 {
-  animation-delay: 0.4s;
-}
-
-.delay-500 {
-  animation-delay: 0.5s;
-}
-
-/* ===== SECTION SPACING - APPLE STYLE ===== */
-section {
-  padding: 6rem 1.5rem;
-  position: relative;
-}
-
-@media (min-width: 768px) {
-  section {
-    padding: 8rem 3rem;
-  }
-}
-
-@media (min-width: 1024px) {
-  section {
-    padding: 10rem 6rem;
-  }
-}
-
-/* ===== CONTAINER ===== */
-.container-premium {
-  max-width: 1400px;
-  margin: 0 auto;
-  padding: 0 1.5rem;
-}
-
-/* ===== HEADING STYLES ===== */
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-weight: 700;
-  line-height: 1.2;
-  letter-spacing: -0.02em;
-}
-
-h1 {
-  font-size: clamp(2.5rem, 6vw, 5rem);
-  font-weight: 800;
-}
-
-h2 {
-  font-size: clamp(2rem, 5vw, 4rem);
-}
-
-h3 {
-  font-size: clamp(1.5rem, 4vw, 2.5rem);
-}
-
-/* ===== LINK HOVER EFFECT ===== */
-a {
-  @apply transition-premium;
-}
-
-a:hover {
-  @apply text-efet-blue;
-}
-
-/* ===== IMAGE OPTIMIZATION ===== */
-img {
-  max-width: 100%;
-  height: auto;
-  display: block;
+.animate-float {
+  animation: float 6s ease-in-out infinite;
 }

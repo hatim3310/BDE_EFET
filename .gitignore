@@ -40,3 +40,9 @@ next-env.d.ts
 .claude/
 .vscode/
 .idea/
+
+
+# media
+/public/events
+/app/events/*.jpg
+

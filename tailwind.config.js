@@ -15,9 +15,13 @@ module.exports = {
         'efet-black': '#1C1C1E',
       },
       fontFamily: {
-        'sf-pro': ['SF Pro Display', 'Inter', 'system-ui', 'sans-serif'],
-        'inter': ['Inter', 'system-ui', 'sans-serif'],
-        'poppins': ['Poppins', 'system-ui', 'sans-serif'],
+        'sf-pro': ['Oswald', 'sans-serif'], // Replacing with Oswald for the "Grack" look
+        'inter': ['Oswald', 'sans-serif'],
+        'outfit': ['Oswald', 'sans-serif'], // Headers now match the primary font
+        'clash': ['Oswald', 'sans-serif'],
+        'poppins': ['Barlow Condensed', 'sans-serif'], // Secondary option if needed
+        'oswald': ['Oswald', 'sans-serif'],
+        'grack': ['Oswald', 'sans-serif'], // Alias for the user's mental model
       },
       boxShadow: {
         'apple': '0 10px 30px rgba(0,0,0,0.08)',

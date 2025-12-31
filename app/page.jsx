@@ -6,6 +6,8 @@ import Gallery from './components/Gallery'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
 
+import EventsGallery from './components/EventsGallery'
+
 /**
  * Page principale du site BDE EFET 2025
  * Assemblage de tous les composants avec scroll fluide
@@ -27,6 +29,9 @@ export default function Home() {
 
       {/* Gallery Section - Esprit BDE et valeurs */}
       <Gallery />
+
+      {/* Events Gallery - Photos souvenir */}
+      <EventsGallery />
 
       {/* Contact Section - Informations de contact */}
       <Contact />
